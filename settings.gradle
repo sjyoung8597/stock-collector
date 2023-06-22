@@ -1,0 +1,2 @@
+rootProject.name = 'stock_collector'
+include 'jooq-custom'

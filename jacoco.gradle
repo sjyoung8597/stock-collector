@@ -1,0 +1,57 @@
+jacoco {
+    toolVersion = '0.8.8'
+    reportsDir  = file("$buildDir/jacoco/report")
+}
+
+jacocoTestReport {
+
+    reports {
+        html.enabled true
+        xml.enabled  false
+        csv.enabled  false
+    }
+
+    afterEvaluate  {
+        getClassDirectories().setFrom(files(classDirectories.files.collect {
+            fileTree(
+                dir: it,
+                exclude: [
+                    'jooq/alring_dsl/**',
+                    'org/owasp/**'
+                ]
+            )
+        }))
+    }
+
+    finalizedBy 'jacocoTestCoverageVerification'
+}
+
+jacocoTestCoverageVerification {
+
+    violationRules {
+        rule {
+            enabled = true
+            element = 'CLASS'
+
+            limit {
+                counter = 'BRANCH'
+                value   = 'COVEREDRATIO'
+                minimum = 0.00
+            }
+        }
+    }
+}
+
+task testCoverage(type: Test) {
+    group 'verification'
+    description '테스트코드 실행과 함께 커버리지 측정'
+
+    dependsOn(
+        ':test',
+        ':jacocoTestReport',
+        ':jacocoTestCoverageVerification'
+    )
+
+    tasks['jacocoTestReport'].mustRunAfter(tasks['test'])
+    tasks['jacocoTestCoverageVerification'].mustRunAfter(tasks['jacocoTestReport'])
+}
