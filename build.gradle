@@ -61,6 +61,8 @@ dependencies {
     implementation group: 'org.bouncycastle', name: 'bcprov-jdk15on', version: '1.69'
     implementation group: 'javax.xml.bind', name: 'jaxb-api', version: '2.1'
 
+    implementation 'org.jsoup:jsoup:1.16.1'
+
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
     annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
