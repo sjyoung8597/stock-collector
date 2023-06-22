@@ -1,6 +1,6 @@
 jooq {
     configurations {
-        xangle {
+        alring {
             generationTool {
                 jdbc {
                     driver   = 'org.mariadb.jdbc.Driver'
@@ -33,7 +33,7 @@ jooq {
                         packageName = 'jooq.alring_dsl'
                         directory   = 'src/generated/'
                     }
-                    strategy.name = 'xangle.jooq.generator.strategy.JPrefixGeneratorStrategy'
+                    strategy.name = 'alring.jooq.generator.strategy.JPrefixGeneratorStrategy'
                 }
             }
         }

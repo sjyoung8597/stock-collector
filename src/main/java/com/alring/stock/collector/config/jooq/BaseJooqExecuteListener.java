@@ -54,7 +54,7 @@ public class BaseJooqExecuteListener extends DefaultExecuteListener {
         final long queryExecutedTime = watch.split();
 
         if (queryExecutedTime > SLOW_QUERY_NANO_TIME) {
-            log.debug("[xangle] Slow Query Detected \n {}", ctx.sql(),
+            log.debug("[alring] Slow Query Detected \n {}", ctx.sql(),
                     String.format("querys : %d ms , executed : %d ms", Duration.ofNanos(SLOW_QUERY_NANO_TIME), Duration.ofNanos(queryExecutedTime))
             );
         }

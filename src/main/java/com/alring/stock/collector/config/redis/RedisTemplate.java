@@ -1,6 +1,6 @@
 package com.alring.stock.collector.config.redis;
 
-import com.crossangle.uniswap.model.exception.PropertySourceNotFoundException;
+import com.alring.stock.collector.model.PropertySourceNotFoundException;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
 import org.springframework.data.redis.core.StringRedisTemplate;
 
