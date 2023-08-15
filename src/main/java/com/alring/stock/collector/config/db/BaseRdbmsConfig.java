@@ -24,15 +24,15 @@ public class BaseRdbmsConfig extends DataSourceConfig {
         super(env, propertySource);
     }
 
-    public static final String dbXangleName = "xangle";
+    public static final String dbStockName = "stock";
 
-    public static final String dataSource = "xangleDataSource";
+    public static final String dataSource = "stockDataSource";
 
-    public static final String rdbmsJooqContext = "xangleRdbms";
+    public static final String rdbmsJooqContext = "stockRdbms";
 
-    public static final String xangleSessionFactory = "xangleSessionFactory";
+    public static final String stockSessionFactory = "stockSessionFactory";
 
-    public static final String xangleTransactionManager = "xangleTransactionManager";
+    public static final String stockTransactionManager = "stockTransactionManager";
 
     @Bean(name = rdbmsJooqContext)
     public DefaultDSLContext rdbmsJooqContext() {
@@ -45,17 +45,17 @@ public class BaseRdbmsConfig extends DataSourceConfig {
 
     @Bean(name = dataSource)
     public DataSource dataSource() {
-        return dataSourceReadWrite(dbXangleName);
+        return dataSourceReadWrite(dbStockName);
     }
 
-    @Bean(name = xangleSessionFactory)
-    public SessionFactory xangleSessionFactory() {
+    @Bean(name = stockSessionFactory)
+    public SessionFactory stockSessionFactory() {
         return sessionFactory(dataSource());
     }
 
-    @Bean(name = xangleTransactionManager)
-    public PlatformTransactionManager xangleTransactionManager() {
-        return transactionManager(xangleSessionFactory());
+    @Bean(name = stockTransactionManager)
+    public PlatformTransactionManager stockTransactionManager() {
+        return transactionManager(stockSessionFactory());
     }
 
 //    @Bean(name = blockDataSource)

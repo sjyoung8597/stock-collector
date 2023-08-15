@@ -14,7 +14,7 @@ import java.util.stream.Stream;
  */
 public class RedisTemplate {
     private final StringRedisTemplate redis;
-    private static final String URL_KEY_PREFIX = "xangle:config.";
+    private static final String URL_KEY_PREFIX = "stock:config.";
 
     public RedisTemplate(String redisHost, int redisPort, boolean cluster) {
         JedisConnectionFactory factory;

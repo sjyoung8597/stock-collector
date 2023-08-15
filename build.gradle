@@ -1,6 +1,6 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '3.1.0'
+    id 'org.springframework.boot' version '2.4.2'
     id 'io.spring.dependency-management' version '1.1.0'
     id 'nu.studer.jooq' version '5.2'
     id "io.freefair.aspectj.post-compile-weaving" version "5.1.0"
@@ -9,10 +9,7 @@ plugins {
 
 group = 'com.alring.stock'
 version = '0.0.1-SNAPSHOT'
-
-java {
-    sourceCompatibility = '17'
-}
+sourceCompatibility = '11'
 
 apply from: 'jooq.gradle'
 apply from: 'jacoco.gradle'
@@ -32,11 +29,12 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
-    implementation 'org.springframework.boot:spring-boot-starter-cache'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation "org.springframework.boot:spring-boot-starter-validation"
+    implementation 'org.springframework.boot:spring-boot-starter-jooq:2.7.9'
+    implementation 'org.springframework:spring-orm'
+    implementation "org.springframework.boot:spring-boot-starter-data-redis"
+    implementation 'org.springframework.boot:spring-boot-starter-cache'
 
     implementation 'org.hibernate:hibernate-core:5.4.24.Final'
     implementation 'org.mariadb.jdbc:mariadb-java-client:3.1.2'
@@ -45,30 +43,32 @@ dependencies {
     implementation 'org.jooq:jooq-meta:3.17.8'
 
     jooqGenerator  'org.mariadb.jdbc:mariadb-java-client'
+    jooqGenerator 'org.postgresql:postgresql:42.5.1'
     jooqGenerator project(':jooq-custom')
 
+    testImplementation 'junit:junit:4.13.1'
     annotationProcessor("org.projectlombok:lombok:1.18.20")
 
-    implementation "org.springframework.boot:spring-boot-starter-validation"
-    implementation 'org.springframework.boot:spring-boot-starter-jooq:2.7.9'
-    implementation 'org.springframework:spring-orm'
+    implementation 'com.google.guava:guava:30.0-android'
 
-    implementation 'joda-time:joda-time:2.12.2'
-    implementation "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.11.4"
-    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-joda:2.14.2'
+    implementation group: 'org.apache.commons', name: 'commons-pool2', version: '2.11.1'
+
+    testImplementation ("org.springframework.boot:spring-boot-starter-test") {
+        exclude(group: "org.junit.vintage", module: "junit-vintage-engine")
+        exclude(group: "org.mockito", module: "mockito-junit-jupiter")
+        exclude(group: "org.mockito", module: "mockito-core")
+    }
 
     implementation group: 'commons-codec', name: 'commons-codec', version: '1.13'
     implementation group: 'org.bouncycastle', name: 'bcprov-jdk15on', version: '1.69'
     implementation group: 'javax.xml.bind', name: 'jaxb-api', version: '2.1'
+    
+    implementation 'com.squareup.okhttp3:okhttp:4.9.3'
+    implementation 'joda-time:joda-time:2.12.2'
+    implementation "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.11.4"
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-joda:2.14.2'
 
     implementation 'org.jsoup:jsoup:1.16.1'
-
-    developmentOnly 'org.springframework.boot:spring-boot-devtools'
-    runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
-    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-
-
 }
 
 sourceSets {

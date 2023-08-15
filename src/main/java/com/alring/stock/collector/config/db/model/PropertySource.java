@@ -6,19 +6,17 @@ import com.zaxxer.hikari.HikariDataSource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.StringRedisTemplate;
 
+
 /**
  * Created by jysong@crossangle.io 2023-02-27
  */
 @Slf4j
 public abstract class PropertySource {
+
     private final RedisTemplate redis;
 
     public PropertySource(String redisHost, int redisPort, boolean cluster) {
         this.redis = new RedisTemplate(redisHost, redisPort, cluster);
-    }
-
-    public PropertySource(RedisTemplate redis) {
-        this.redis = redis;
     }
 
     public PropertySource(StringRedisTemplate redis) {
@@ -67,10 +65,6 @@ public abstract class PropertySource {
 
     public DatabaseModeType getDataBaseReadWrite() {
         return DatabaseModeType.RDBMS;
-    }
-
-    public DatabaseAccessInfo getDatabaseAccessInfo(String key, String host) {
-        return new DatabaseAccessInfo(this.redis.hGetAllRequired(key), host);
     }
 
 }
