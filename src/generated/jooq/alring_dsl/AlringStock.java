@@ -8,8 +8,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import jooq.alring_dsl.tables.AlringCountry;
-import jooq.alring_dsl.tables.AlringExchangeRate;
-import jooq.alring_dsl.tables.AlringStockPrice;
 
 import org.jooq.Catalog;
 import org.jooq.Table;
@@ -22,7 +20,7 @@ import org.jooq.impl.SchemaImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class AlringStock extends SchemaImpl {
 
-    private static final long serialVersionUID = 1611545962;
+    private static final long serialVersionUID = -714127536;
 
     /**
      * The reference instance of <code>stock</code>
@@ -33,21 +31,6 @@ public class AlringStock extends SchemaImpl {
      * The table <code>stock.country</code>.
      */
     public final AlringCountry COUNTRY = AlringCountry.COUNTRY;
-
-    /**
-     * The table <code>stock.exchange_rate</code>.
-     */
-    public final AlringExchangeRate EXCHANGE_RATE = AlringExchangeRate.EXCHANGE_RATE;
-
-    /**
-     * The table <code>stock.stock</code>.
-     */
-    public final jooq.alring_dsl.tables.AlringStock STOCK_ = jooq.alring_dsl.tables.AlringStock.STOCK_;
-
-    /**
-     * The table <code>stock.stock_price</code>.
-     */
-    public final AlringStockPrice STOCK_PRICE = AlringStockPrice.STOCK_PRICE;
 
     /**
      * No further instances allowed
@@ -65,9 +48,6 @@ public class AlringStock extends SchemaImpl {
     @Override
     public final List<Table<?>> getTables() {
         return Arrays.<Table<?>>asList(
-            AlringCountry.COUNTRY,
-            AlringExchangeRate.EXCHANGE_RATE,
-            jooq.alring_dsl.tables.AlringStock.STOCK_,
-            AlringStockPrice.STOCK_PRICE);
+            AlringCountry.COUNTRY);
     }
 }

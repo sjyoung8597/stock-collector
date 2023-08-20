@@ -21,10 +21,6 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Created by jysong@crossangle.io 2023-02-27
- */
-
 @EnableCaching
 @Configuration
 public class RedisConfig extends CachingConfigurerSupport {
@@ -37,6 +33,9 @@ public class RedisConfig extends CachingConfigurerSupport {
 
     @Value("${redis.cluster}")
     private Boolean cluster;
+
+    @Value("${redis.password}")
+    private String password;
 
     @Bean("redisClient")
     @Primary
@@ -59,6 +58,7 @@ public class RedisConfig extends CachingConfigurerSupport {
             factory = new LettuceConnectionFactory(clusterConfiguration);
         } else {
             RedisStandaloneConfiguration standaloneConfiguration = new RedisStandaloneConfiguration(host, port);
+            standaloneConfiguration.setPassword(password);
             factory = new LettuceConnectionFactory(standaloneConfiguration);
         }
         return factory;

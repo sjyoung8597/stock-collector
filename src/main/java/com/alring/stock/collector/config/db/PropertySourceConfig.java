@@ -6,9 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 import org.springframework.data.redis.core.StringRedisTemplate;
 
-/**
- * Created by jysong@crossangle.io 2023-02-28
- */
+
 @Configuration
 public class PropertySourceConfig {
 

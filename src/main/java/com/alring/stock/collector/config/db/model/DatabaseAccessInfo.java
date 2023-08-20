@@ -7,9 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.Map;
 import java.util.stream.Stream;
 
-/**
- * Created by jysong@crossangle.io 2023-02-28
- */
+
 @Slf4j
 public class DatabaseAccessInfo {
     protected String host;

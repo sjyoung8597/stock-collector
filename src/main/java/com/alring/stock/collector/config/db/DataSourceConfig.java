@@ -13,9 +13,6 @@ import org.springframework.transaction.PlatformTransactionManager;
 import javax.sql.DataSource;
 import java.util.Properties;
 
-/**
- * Created by jysong@crossangle.io 2023-02-28
- */
 
 public class DataSourceConfig {
 

@@ -31,7 +31,7 @@ import org.jooq.impl.TableImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class AlringCountry extends TableImpl<AlringCountryRecord> {
 
-    private static final long serialVersionUID = -1690220123;
+    private static final long serialVersionUID = 141400522;
 
     /**
      * The reference instance of <code>stock.country</code>
@@ -47,14 +47,14 @@ public class AlringCountry extends TableImpl<AlringCountryRecord> {
     }
 
     /**
-     * The column <code>stock.country.country_code</code>. 나라 코드
+     * The column <code>stock.country.country_type</code>.
      */
-    public final TableField<AlringCountryRecord, String> COUNTRY_CODE = createField(DSL.name("country_code"), org.jooq.impl.SQLDataType.VARCHAR(30).nullable(false), this, "나라 코드");
+    public final TableField<AlringCountryRecord, String> COUNTRY_TYPE = createField(DSL.name("country_type"), org.jooq.impl.SQLDataType.VARCHAR(50).nullable(false), this, "");
 
     /**
-     * The column <code>stock.country.currency_code</code>. 통화
+     * The column <code>stock.country.description</code>.
      */
-    public final TableField<AlringCountryRecord, String> CURRENCY_CODE = createField(DSL.name("currency_code"), org.jooq.impl.SQLDataType.VARCHAR(20).nullable(false), this, "통화");
+    public final TableField<AlringCountryRecord, String> DESCRIPTION = createField(DSL.name("description"), org.jooq.impl.SQLDataType.VARCHAR(1000).nullable(false), this, "");
 
     /**
      * Create a <code>stock.country</code> table reference

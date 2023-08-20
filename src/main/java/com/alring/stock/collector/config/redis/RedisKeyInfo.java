@@ -2,12 +2,10 @@ package com.alring.stock.collector.config.redis;
 
 import java.time.Duration;
 
-/**
- * Created by jysong@crossangle.io 2023-03-02
- */
+
 public enum RedisKeyInfo {
     SHARD(RedisPrefix.SHARD, Duration.ofMinutes(30L)),
-    BLOCK(RedisPrefix.BLOCK, Duration.ofSeconds(60L)),
+    COUNTRY(RedisPrefix.COUNTRY, Duration.ofSeconds(60L)),
 
     ;
 

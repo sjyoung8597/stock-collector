@@ -4,7 +4,7 @@ jooq {
             generationTool {
                 jdbc {
                     driver   = 'org.mariadb.jdbc.Driver'
-                    url      = 'jdbc:mariadb://192.168.0.4:33306'
+                    url      = 'jdbc:mariadb://221.150.189.117:3306'
                     user     = 'root'
                     password = 'tdksm!@34'
                 }

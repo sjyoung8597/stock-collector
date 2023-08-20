@@ -13,38 +13,38 @@ import java.io.Serializable;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class AlringCountry implements Serializable {
 
-    private static final long serialVersionUID = -107147522;
+    private static final long serialVersionUID = 1815066737;
 
-    private final String countryCode;
-    private final String currencyCode;
+    private final String countryType;
+    private final String description;
 
     public AlringCountry(AlringCountry value) {
-        this.countryCode = value.countryCode;
-        this.currencyCode = value.currencyCode;
+        this.countryType = value.countryType;
+        this.description = value.description;
     }
 
     public AlringCountry(
-        String countryCode,
-        String currencyCode
+        String countryType,
+        String description
     ) {
-        this.countryCode = countryCode;
-        this.currencyCode = currencyCode;
+        this.countryType = countryType;
+        this.description = description;
     }
 
-    public String getCountryCode() {
-        return this.countryCode;
+    public String getCountryType() {
+        return this.countryType;
     }
 
-    public String getCurrencyCode() {
-        return this.currencyCode;
+    public String getDescription() {
+        return this.description;
     }
 
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder("AlringCountry (");
 
-        sb.append(countryCode);
-        sb.append(", ").append(currencyCode);
+        sb.append(countryType);
+        sb.append(", ").append(description);
 
         sb.append(")");
         return sb.toString();

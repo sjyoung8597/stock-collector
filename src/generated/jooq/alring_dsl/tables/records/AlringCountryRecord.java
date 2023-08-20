@@ -19,35 +19,35 @@ import org.jooq.impl.UpdatableRecordImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class AlringCountryRecord extends UpdatableRecordImpl<AlringCountryRecord> implements Record2<String, String> {
 
-    private static final long serialVersionUID = 1989365693;
+    private static final long serialVersionUID = -1243799306;
 
     /**
-     * Setter for <code>stock.country.country_code</code>. 나라 코드
+     * Setter for <code>stock.country.country_type</code>.
      */
-    public AlringCountryRecord setCountryCode(String value) {
+    public AlringCountryRecord setCountryType(String value) {
         set(0, value);
         return this;
     }
 
     /**
-     * Getter for <code>stock.country.country_code</code>. 나라 코드
+     * Getter for <code>stock.country.country_type</code>.
      */
-    public String getCountryCode() {
+    public String getCountryType() {
         return (String) get(0);
     }
 
     /**
-     * Setter for <code>stock.country.currency_code</code>. 통화
+     * Setter for <code>stock.country.description</code>.
      */
-    public AlringCountryRecord setCurrencyCode(String value) {
+    public AlringCountryRecord setDescription(String value) {
         set(1, value);
         return this;
     }
 
     /**
-     * Getter for <code>stock.country.currency_code</code>. 통화
+     * Getter for <code>stock.country.description</code>.
      */
-    public String getCurrencyCode() {
+    public String getDescription() {
         return (String) get(1);
     }
 
@@ -76,43 +76,43 @@ public class AlringCountryRecord extends UpdatableRecordImpl<AlringCountryRecord
 
     @Override
     public Field<String> field1() {
-        return AlringCountry.COUNTRY.COUNTRY_CODE;
+        return AlringCountry.COUNTRY.COUNTRY_TYPE;
     }
 
     @Override
     public Field<String> field2() {
-        return AlringCountry.COUNTRY.CURRENCY_CODE;
+        return AlringCountry.COUNTRY.DESCRIPTION;
     }
 
     @Override
     public String component1() {
-        return getCountryCode();
+        return getCountryType();
     }
 
     @Override
     public String component2() {
-        return getCurrencyCode();
+        return getDescription();
     }
 
     @Override
     public String value1() {
-        return getCountryCode();
+        return getCountryType();
     }
 
     @Override
     public String value2() {
-        return getCurrencyCode();
+        return getDescription();
     }
 
     @Override
     public AlringCountryRecord value1(String value) {
-        setCountryCode(value);
+        setCountryType(value);
         return this;
     }
 
     @Override
     public AlringCountryRecord value2(String value) {
-        setCurrencyCode(value);
+        setDescription(value);
         return this;
     }
 
@@ -137,10 +137,10 @@ public class AlringCountryRecord extends UpdatableRecordImpl<AlringCountryRecord
     /**
      * Create a detached, initialised AlringCountryRecord
      */
-    public AlringCountryRecord(String countryCode, String currencyCode) {
+    public AlringCountryRecord(String countryType, String description) {
         super(AlringCountry.COUNTRY);
 
-        set(0, countryCode);
-        set(1, currencyCode);
+        set(0, countryType);
+        set(1, description);
     }
 }

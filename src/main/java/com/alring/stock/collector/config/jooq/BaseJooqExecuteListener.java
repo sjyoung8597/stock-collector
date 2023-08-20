@@ -16,9 +16,7 @@ import org.springframework.jdbc.support.SQLExceptionTranslator;
 import java.time.Duration;
 import java.util.Arrays;
 
-/**
- * Created by jysong@crossangle.io 2023-02-26
- */
+
 
 public class BaseJooqExecuteListener extends DefaultExecuteListener {
 

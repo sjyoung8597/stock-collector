@@ -7,9 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.redis.core.StringRedisTemplate;
 
 
-/**
- * Created by jysong@crossangle.io 2023-02-27
- */
+
 @Slf4j
 public abstract class PropertySource {
 
@@ -50,7 +48,7 @@ public abstract class PropertySource {
 
         HikariDataSource dataSource = new HikariDataSource();
         dataSource.setDriverClassName("org.mariadb.jdbc.Driver");
-        dataSource.setJdbcUrl(String.format("jdbc:mariadb://%s/%s?connectTimeout=%d", "192.168.0.4:33306", databaseName, connectTimeout));
+        dataSource.setJdbcUrl(String.format("jdbc:mariadb://%s/%s?connectTimeout=%d", "221.150.189.117:3306", databaseName, connectTimeout));
         dataSource.setUsername("root");
         dataSource.setPassword("tdksm!@34");
         dataSource.setMaximumPoolSize(maxPoolSize);

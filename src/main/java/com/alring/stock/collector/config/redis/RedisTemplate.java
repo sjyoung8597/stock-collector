@@ -9,9 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Stream;
 
-/**
- * Created by jysong@crossangle.io 2023-03-02
- */
+
 public class RedisTemplate {
     private final StringRedisTemplate redis;
     private static final String URL_KEY_PREFIX = "stock:config.";
