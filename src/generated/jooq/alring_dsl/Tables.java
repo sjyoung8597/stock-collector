@@ -5,6 +5,12 @@ package jooq.alring_dsl;
 
 
 import jooq.alring_dsl.tables.AlringCountry;
+import jooq.alring_dsl.tables.AlringExchangeRate;
+import jooq.alring_dsl.tables.AlringIndustry;
+import jooq.alring_dsl.tables.AlringMarket;
+import jooq.alring_dsl.tables.AlringStock;
+import jooq.alring_dsl.tables.AlringStockIndustry;
+import jooq.alring_dsl.tables.AlringStockPriceDay;
 
 
 /**
@@ -17,4 +23,34 @@ public class Tables {
      * The table <code>stock.country</code>.
      */
     public static final AlringCountry COUNTRY = AlringCountry.COUNTRY;
+
+    /**
+     * The table <code>stock.exchange_rate</code>.
+     */
+    public static final AlringExchangeRate EXCHANGE_RATE = AlringExchangeRate.EXCHANGE_RATE;
+
+    /**
+     * The table <code>stock.industry</code>.
+     */
+    public static final AlringIndustry INDUSTRY = AlringIndustry.INDUSTRY;
+
+    /**
+     * The table <code>stock.market</code>.
+     */
+    public static final AlringMarket MARKET = AlringMarket.MARKET;
+
+    /**
+     * The table <code>stock.stock</code>.
+     */
+    public static final AlringStock STOCK_ = AlringStock.STOCK_;
+
+    /**
+     * The table <code>stock.stock_industry</code>.
+     */
+    public static final AlringStockIndustry STOCK_INDUSTRY = AlringStockIndustry.STOCK_INDUSTRY;
+
+    /**
+     * The table <code>stock.stock_price_day</code>.
+     */
+    public static final AlringStockPriceDay STOCK_PRICE_DAY = AlringStockPriceDay.STOCK_PRICE_DAY;
 }

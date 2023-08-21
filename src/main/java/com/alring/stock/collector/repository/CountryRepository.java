@@ -8,10 +8,14 @@ import jooq.alring_dsl.tables.AlringCountry;
 import lombok.Setter;
 import org.jooq.DSLContext;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.Caching;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 public class CountryRepository implements ApplicationContextAware {
@@ -37,18 +41,29 @@ public class CountryRepository implements ApplicationContextAware {
                 ).fetchOneInto(CountryInfo.class);
     }
 
-//    @Caching(evict = {
-//            @CacheEvict(value = RedisPrefix.COUNTRY, key = "'country' + ':' + #countryInfo.countryType()")
-//            //@CacheEvict(value = RedisPrefix.COUNTRY, key = "'countryList'")
-//    })
-    public void insertCountry(CountryInfo countryInfo) {
+    @Cacheable(value = RedisPrefix.COUNTRY, key = "'countryList'", unless = "#result == null")
+    public List<CountryInfo> selectCountryList() {
+        final AlringCountry ac = AlringCountry.COUNTRY;
+
+        return rdbmsDslContext.select(
+                        ac.COUNTRY_TYPE.as("countryType"),
+                        ac.DESCRIPTION.as("description")
+                ).from(ac)
+                .fetchInto(CountryInfo.class);
+    }
+
+    @Caching(evict = {
+            @CacheEvict(value = RedisPrefix.COUNTRY, key = "'country' + ':' + #countryType"),
+            @CacheEvict(value = RedisPrefix.COUNTRY, key = "'countryList'")
+    })
+    public void insertCountry(CountryType countryType) {
         final AlringCountry ac = AlringCountry.COUNTRY;
 
         rdbmsDslContext.insertInto(ac)
                 .columns(ac.COUNTRY_TYPE,
                         ac.DESCRIPTION)
-                .values(countryInfo.getCountryType().getCode(),
-                        countryInfo.getDescription())
+                .values(countryType.getCode(),
+                        countryType.getDescription())
                 .returning(ac.COUNTRY_TYPE)
                 .fetchOne();
     }

@@ -5,8 +5,21 @@ package jooq.alring_dsl;
 
 
 import jooq.alring_dsl.tables.AlringCountry;
+import jooq.alring_dsl.tables.AlringExchangeRate;
+import jooq.alring_dsl.tables.AlringIndustry;
+import jooq.alring_dsl.tables.AlringMarket;
+import jooq.alring_dsl.tables.AlringStock;
+import jooq.alring_dsl.tables.AlringStockIndustry;
+import jooq.alring_dsl.tables.AlringStockPriceDay;
 import jooq.alring_dsl.tables.records.AlringCountryRecord;
+import jooq.alring_dsl.tables.records.AlringExchangeRateRecord;
+import jooq.alring_dsl.tables.records.AlringIndustryRecord;
+import jooq.alring_dsl.tables.records.AlringMarketRecord;
+import jooq.alring_dsl.tables.records.AlringStockIndustryRecord;
+import jooq.alring_dsl.tables.records.AlringStockPriceDayRecord;
+import jooq.alring_dsl.tables.records.AlringStockRecord;
 
+import org.jooq.Identity;
 import org.jooq.TableField;
 import org.jooq.UniqueKey;
 import org.jooq.impl.Internal;
@@ -23,12 +36,24 @@ public class Keys {
     // IDENTITY definitions
     // -------------------------------------------------------------------------
 
+    public static final Identity<AlringExchangeRateRecord, Integer> IDENTITY_EXCHANGE_RATE = Identities0.IDENTITY_EXCHANGE_RATE;
+    public static final Identity<AlringIndustryRecord, Integer> IDENTITY_INDUSTRY = Identities0.IDENTITY_INDUSTRY;
+    public static final Identity<AlringMarketRecord, Integer> IDENTITY_MARKET = Identities0.IDENTITY_MARKET;
+    public static final Identity<AlringStockRecord, Integer> IDENTITY_STOCK_ = Identities0.IDENTITY_STOCK_;
+    public static final Identity<AlringStockIndustryRecord, Integer> IDENTITY_STOCK_INDUSTRY = Identities0.IDENTITY_STOCK_INDUSTRY;
+    public static final Identity<AlringStockPriceDayRecord, Integer> IDENTITY_STOCK_PRICE_DAY = Identities0.IDENTITY_STOCK_PRICE_DAY;
 
     // -------------------------------------------------------------------------
     // UNIQUE and PRIMARY KEY definitions
     // -------------------------------------------------------------------------
 
     public static final UniqueKey<AlringCountryRecord> KEY_COUNTRY_PRIMARY = UniqueKeys0.KEY_COUNTRY_PRIMARY;
+    public static final UniqueKey<AlringExchangeRateRecord> KEY_EXCHANGE_RATE_PRIMARY = UniqueKeys0.KEY_EXCHANGE_RATE_PRIMARY;
+    public static final UniqueKey<AlringIndustryRecord> KEY_INDUSTRY_PRIMARY = UniqueKeys0.KEY_INDUSTRY_PRIMARY;
+    public static final UniqueKey<AlringMarketRecord> KEY_MARKET_PRIMARY = UniqueKeys0.KEY_MARKET_PRIMARY;
+    public static final UniqueKey<AlringStockRecord> KEY_STOCK_PRIMARY = UniqueKeys0.KEY_STOCK_PRIMARY;
+    public static final UniqueKey<AlringStockIndustryRecord> KEY_STOCK_INDUSTRY_PRIMARY = UniqueKeys0.KEY_STOCK_INDUSTRY_PRIMARY;
+    public static final UniqueKey<AlringStockPriceDayRecord> KEY_STOCK_PRICE_DAY_PRIMARY = UniqueKeys0.KEY_STOCK_PRICE_DAY_PRIMARY;
 
     // -------------------------------------------------------------------------
     // FOREIGN KEY definitions
@@ -39,7 +64,22 @@ public class Keys {
     // [#1459] distribute members to avoid static initialisers > 64kb
     // -------------------------------------------------------------------------
 
+    private static class Identities0 {
+        public static Identity<AlringExchangeRateRecord, Integer> IDENTITY_EXCHANGE_RATE = Internal.createIdentity(AlringExchangeRate.EXCHANGE_RATE, AlringExchangeRate.EXCHANGE_RATE.EXCHANGE_NO);
+        public static Identity<AlringIndustryRecord, Integer> IDENTITY_INDUSTRY = Internal.createIdentity(AlringIndustry.INDUSTRY, AlringIndustry.INDUSTRY.INDUSTRY_NO);
+        public static Identity<AlringMarketRecord, Integer> IDENTITY_MARKET = Internal.createIdentity(AlringMarket.MARKET, AlringMarket.MARKET.MARKET_NO);
+        public static Identity<AlringStockRecord, Integer> IDENTITY_STOCK_ = Internal.createIdentity(AlringStock.STOCK_, AlringStock.STOCK_.STOCK_NO);
+        public static Identity<AlringStockIndustryRecord, Integer> IDENTITY_STOCK_INDUSTRY = Internal.createIdentity(AlringStockIndustry.STOCK_INDUSTRY, AlringStockIndustry.STOCK_INDUSTRY.STOCK_INDUSTRY_NO);
+        public static Identity<AlringStockPriceDayRecord, Integer> IDENTITY_STOCK_PRICE_DAY = Internal.createIdentity(AlringStockPriceDay.STOCK_PRICE_DAY, AlringStockPriceDay.STOCK_PRICE_DAY.PRICE_NO);
+    }
+
     private static class UniqueKeys0 {
         public static final UniqueKey<AlringCountryRecord> KEY_COUNTRY_PRIMARY = Internal.createUniqueKey(AlringCountry.COUNTRY, "KEY_country_PRIMARY", new TableField[] { AlringCountry.COUNTRY.COUNTRY_TYPE }, true);
+        public static final UniqueKey<AlringExchangeRateRecord> KEY_EXCHANGE_RATE_PRIMARY = Internal.createUniqueKey(AlringExchangeRate.EXCHANGE_RATE, "KEY_exchange_rate_PRIMARY", new TableField[] { AlringExchangeRate.EXCHANGE_RATE.EXCHANGE_NO }, true);
+        public static final UniqueKey<AlringIndustryRecord> KEY_INDUSTRY_PRIMARY = Internal.createUniqueKey(AlringIndustry.INDUSTRY, "KEY_industry_PRIMARY", new TableField[] { AlringIndustry.INDUSTRY.INDUSTRY_NO }, true);
+        public static final UniqueKey<AlringMarketRecord> KEY_MARKET_PRIMARY = Internal.createUniqueKey(AlringMarket.MARKET, "KEY_market_PRIMARY", new TableField[] { AlringMarket.MARKET.MARKET_NO }, true);
+        public static final UniqueKey<AlringStockRecord> KEY_STOCK_PRIMARY = Internal.createUniqueKey(AlringStock.STOCK_, "KEY_stock_PRIMARY", new TableField[] { AlringStock.STOCK_.STOCK_NO }, true);
+        public static final UniqueKey<AlringStockIndustryRecord> KEY_STOCK_INDUSTRY_PRIMARY = Internal.createUniqueKey(AlringStockIndustry.STOCK_INDUSTRY, "KEY_stock_industry_PRIMARY", new TableField[] { AlringStockIndustry.STOCK_INDUSTRY.STOCK_INDUSTRY_NO }, true);
+        public static final UniqueKey<AlringStockPriceDayRecord> KEY_STOCK_PRICE_DAY_PRIMARY = Internal.createUniqueKey(AlringStockPriceDay.STOCK_PRICE_DAY, "KEY_stock_price_day_PRIMARY", new TableField[] { AlringStockPriceDay.STOCK_PRICE_DAY.PRICE_NO }, true);
     }
 }

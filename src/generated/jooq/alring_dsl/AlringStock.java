@@ -8,6 +8,11 @@ import java.util.Arrays;
 import java.util.List;
 
 import jooq.alring_dsl.tables.AlringCountry;
+import jooq.alring_dsl.tables.AlringExchangeRate;
+import jooq.alring_dsl.tables.AlringIndustry;
+import jooq.alring_dsl.tables.AlringMarket;
+import jooq.alring_dsl.tables.AlringStockIndustry;
+import jooq.alring_dsl.tables.AlringStockPriceDay;
 
 import org.jooq.Catalog;
 import org.jooq.Table;
@@ -20,7 +25,7 @@ import org.jooq.impl.SchemaImpl;
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class AlringStock extends SchemaImpl {
 
-    private static final long serialVersionUID = -714127536;
+    private static final long serialVersionUID = -1582406618;
 
     /**
      * The reference instance of <code>stock</code>
@@ -31,6 +36,36 @@ public class AlringStock extends SchemaImpl {
      * The table <code>stock.country</code>.
      */
     public final AlringCountry COUNTRY = AlringCountry.COUNTRY;
+
+    /**
+     * The table <code>stock.exchange_rate</code>.
+     */
+    public final AlringExchangeRate EXCHANGE_RATE = AlringExchangeRate.EXCHANGE_RATE;
+
+    /**
+     * The table <code>stock.industry</code>.
+     */
+    public final AlringIndustry INDUSTRY = AlringIndustry.INDUSTRY;
+
+    /**
+     * The table <code>stock.market</code>.
+     */
+    public final AlringMarket MARKET = AlringMarket.MARKET;
+
+    /**
+     * The table <code>stock.stock</code>.
+     */
+    public final jooq.alring_dsl.tables.AlringStock STOCK_ = jooq.alring_dsl.tables.AlringStock.STOCK_;
+
+    /**
+     * The table <code>stock.stock_industry</code>.
+     */
+    public final AlringStockIndustry STOCK_INDUSTRY = AlringStockIndustry.STOCK_INDUSTRY;
+
+    /**
+     * The table <code>stock.stock_price_day</code>.
+     */
+    public final AlringStockPriceDay STOCK_PRICE_DAY = AlringStockPriceDay.STOCK_PRICE_DAY;
 
     /**
      * No further instances allowed
@@ -48,6 +83,12 @@ public class AlringStock extends SchemaImpl {
     @Override
     public final List<Table<?>> getTables() {
         return Arrays.<Table<?>>asList(
-            AlringCountry.COUNTRY);
+            AlringCountry.COUNTRY,
+            AlringExchangeRate.EXCHANGE_RATE,
+            AlringIndustry.INDUSTRY,
+            AlringMarket.MARKET,
+            jooq.alring_dsl.tables.AlringStock.STOCK_,
+            AlringStockIndustry.STOCK_INDUSTRY,
+            AlringStockPriceDay.STOCK_PRICE_DAY);
     }
 }

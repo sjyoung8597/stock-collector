@@ -5,7 +5,8 @@ import java.time.Duration;
 
 public enum RedisKeyInfo {
     SHARD(RedisPrefix.SHARD, Duration.ofMinutes(30L)),
-    COUNTRY(RedisPrefix.COUNTRY, Duration.ofSeconds(60L)),
+    COUNTRY(RedisPrefix.COUNTRY, Duration.ofMinutes(30L)),
+    MARKET(RedisPrefix.MARKET, Duration.ofMinutes(60L)),
 
     ;
 
