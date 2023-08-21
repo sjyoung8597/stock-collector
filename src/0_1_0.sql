@@ -27,9 +27,8 @@ CREATE TABLE stock (
                        stock_no int(11) primary key AUTO_INCREMENT,
                        stock_name VARCHAR(500) NOT NULL,
                        market_no int(11) NOT NULL,
-                       stock_listed int(11) NOT NULL,
+                       stock_listed bigint(20) NOT NULL,
                        status VARCHAR(20) NOT NULL DEFAULT 'YES',
-                       currency_rate double(40,3) NOT NULL,
                        update_date datetime NOT NULL,
                        create_date datetime NOT NULL
 ) ENGINE=INNODB DEFAULT CHARSET=utf8
@@ -39,7 +38,7 @@ CREATE TABLE stock_price_day (
                        stock_no int(11) NOT NULL,
                        currency_type VARCHAR(50) NOT NULL,
                        price double(40,3) NOT NULL,
-                       market_cap double(40,3) NOT NULL,
+                       market_cap bigint(20) NOT NULL,
                        currency_rate double(40,3) NOT NULL,
                        create_date datetime NOT NULL
 ) ENGINE=INNODB DEFAULT CHARSET=utf8

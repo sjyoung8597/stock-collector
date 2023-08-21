@@ -1,6 +1,6 @@
 package com.alring.stock.collector.service.crawling;
 
-import com.alring.stock.collector.model.stock.StockInfo;
+import com.alring.stock.collector.model.stock.StockCrawlingInfo;
 import com.alring.stock.collector.model.type.CountryType;
 import com.alring.stock.collector.model.type.CurrencyType;
 import com.alring.stock.collector.model.type.IndustryType;
@@ -19,8 +19,8 @@ public class KospiCrawlingService {
     private static final String KOSPI_URL = "https://finance.naver.com/sise/sise_market_sum.nhn?sosok=0&page=";
     private static int END_PAGE = 50;
 
-    public List<StockInfo> getKospi() {
-        List<StockInfo> stockInfoList = new ArrayList<>();
+    public List<StockCrawlingInfo> getKospi() {
+        List<StockCrawlingInfo> stockInfoList = new ArrayList<>();
         try {
             for (int page = 1; page <= END_PAGE; page++) {
                 boolean check = true;
@@ -47,7 +47,7 @@ public class KospiCrawlingService {
                             CurrencyType currencyType = CurrencyType.KRW;
                             MarketType marketType = MarketType.KOSPI;
                             IndustryType industryType = IndustryType.ELECTRONIC;
-                            StockInfo stockInfo = new StockInfo(0, countryType, stockName, currencyType, industryType, marketType, price, stockListed, marketCap);
+                            StockCrawlingInfo stockInfo = new StockCrawlingInfo(0, countryType, stockName, currencyType, industryType, marketType, price, stockListed, marketCap);
                             stockInfoList.add(stockInfo);
                         }
                         currentIndex += 13;

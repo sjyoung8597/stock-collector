@@ -11,7 +11,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @AllArgsConstructor
-public class StockInfo {
+public class StockCrawlingInfo {
 
     public int stockNo;
     public CountryType countryType;
