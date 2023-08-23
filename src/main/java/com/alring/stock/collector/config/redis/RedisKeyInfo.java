@@ -7,6 +7,8 @@ public enum RedisKeyInfo {
     SHARD(RedisPrefix.SHARD, Duration.ofMinutes(30L)),
     COUNTRY(RedisPrefix.COUNTRY, Duration.ofMinutes(30L)),
     MARKET(RedisPrefix.MARKET, Duration.ofMinutes(60L)),
+    EXCHANGE_RATE(RedisPrefix.EXCHANGE_RATE, Duration.ofMinutes(60L)),
+    INDUSTRY(RedisPrefix.INDUSTRY, Duration.ofMinutes(60L)),
 
     ;
 
