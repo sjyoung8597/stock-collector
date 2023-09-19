@@ -1,6 +1,6 @@
 package com.alring.stock.collector.scheduler;
 
-import com.alring.stock.collector.service.KospiService;
+import com.alring.stock.collector.service.kospi.KospiService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;

@@ -16,4 +16,6 @@ public class StockInfo {
     private StatusType status;
     private long updateDate;
     private long createDate;
+
+    public StockInfo() {}
 }

@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
+
 /**
  * Created by jysong@crossangle.io 2023/08/21
  */
@@ -13,10 +15,12 @@ import lombok.Setter;
 @Getter
 @Setter
 @AllArgsConstructor
-public class MarketInfo {
+public class MarketInfo implements Serializable {
 
     private int marketNo;
     private CountryType countryType;
     private MarketType marketType;
     private String description;
+
+    public MarketInfo() {}
 }

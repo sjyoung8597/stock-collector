@@ -16,4 +16,6 @@ public class StockPriceDayInfo {
     private long marketCap;
     private double currencyRate;
     private long createDate;
+
+    public StockPriceDayInfo() {}
 }

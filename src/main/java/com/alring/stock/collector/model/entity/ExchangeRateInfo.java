@@ -18,4 +18,6 @@ public class ExchangeRateInfo {
     private double exCurrencyRate;
     private String description;
     private long createDate;
+
+    public ExchangeRateInfo() {}
 }

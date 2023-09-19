@@ -4,7 +4,6 @@ import com.alring.stock.collector.model.entity.CountryInfo;
 import com.alring.stock.collector.model.stock.StockCrawlingInfo;
 import com.alring.stock.collector.model.type.CountryType;
 import com.alring.stock.collector.repository.CountryRepository;
-import com.alring.stock.collector.service.crawling.KospiCrawlingService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,17 +13,14 @@ import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
-public class KospiService {
-
-    private final KospiCrawlingService kospiCrawlingService;
+public class CountryService {
     private final CountryRepository countryRepository;
 
     @Transactional
-    public void setKospi() {
-        List<StockCrawlingInfo> stockInfoList = kospiCrawlingService.getKospi();
+    public void setCountry(List<StockCrawlingInfo> stockCrawlingInfoList) {
         List<CountryInfo> countryInfoList = countryRepository.selectCountryList();
 
-        List<CountryType> countryTypeList = stockInfoList.stream()
+        List<CountryType> countryTypeList = stockCrawlingInfoList.stream()
                 .map(StockCrawlingInfo::getCountryType)
                 .filter(countryType ->
                         !countryInfoList.stream()
@@ -34,11 +30,5 @@ public class KospiService {
                 .collect(Collectors.toList());
 
         countryTypeList.forEach(countryRepository::insertCountry);
-
-
-
-
-
-
     }
 }

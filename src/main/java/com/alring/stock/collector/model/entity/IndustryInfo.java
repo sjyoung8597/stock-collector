@@ -12,4 +12,6 @@ public class IndustryInfo {
     private int industryNo;
     private IndustryType industryType;
     private String description;
+
+    public IndustryInfo() {}
 }

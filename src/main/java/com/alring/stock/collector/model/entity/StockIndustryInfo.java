@@ -11,4 +11,6 @@ public class StockIndustryInfo {
     private int stockIndustryNo;
     private int stockNo;
     private int industryNo;
+
+    public StockIndustryInfo() {}
 }

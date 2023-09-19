@@ -5,10 +5,18 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
+
 @Getter
 @Setter
 @AllArgsConstructor
-public class CountryInfo {
+public class CountryInfo implements Serializable {
+    private static final long serialVersionUID = -493894612469280001L;
+
     private CountryType countryType;
     private String description;
+
+    public CountryInfo() {
+
+    }
 }
